@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   title: "PrepWise AI - Smart Study Planner",
-  description:
-    "AI-powered study planner that generates personalized study schedules and helps you prepare for exams efficiently.",
+  description: "AI-powered study assistant for students",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 min-h-screen">
+      <body className={inter.className}>
         <Navbar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
